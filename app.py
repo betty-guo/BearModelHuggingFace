@@ -7,11 +7,11 @@ def is_cat(x): return x[0].isupper()
 
 learn = load_learner('model.pkl')
 
-labels = learn.dls.vocab
+categories = ('Dog', 'Cat')
 
 def classify_image(img):
     pred,pred_idx,probs = learn.predict(img)
-    return dict(zip(labels, map(float, probs)))
+    return dict(zip(categories, map(float, probs)))
 
 image = gr.Image(height=224, width=224)
 label = gr.Label()

@@ -13,8 +13,8 @@ def classify_image(img):
     pred,pred_idx,probs = learn.predict(img)
     return dict(zip(labels, map(float, probs)))
 
-image = gr.inputs.Image(shape=(224, 224))
-label = gr.outputs.Label()
+image = gr.Image(height=224, width=224)
+label = gr.Label()
 examples = ['siamese.jpg', 'beagle.jpg', 'bagel.jpg']
 
 intf = gr.Interface(fn=classify_image, inputs=image, outputs=label, examples=examples)
